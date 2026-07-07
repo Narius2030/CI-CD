@@ -1,0 +1,5 @@
+# Code owners are auto-requested for review on PRs touching matching paths.
+# ponytail: thay @your-org/your-team bằng team/username GitHub thật của bạn.
+*                     @your-org/your-team
+/.github/             @your-org/platform-team
+/Dockerfile           @your-org/platform-team
