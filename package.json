@@ -1,0 +1,52 @@
+{
+  "name": "ci-cd",
+  "version": "1.1.0",
+  "description": "Production CI/CD template: Node.js/TypeScript + GitHub Actions + Docker",
+  "type": "module",
+  "license": "MIT",
+  "author": "taovietducofficial",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taovietducofficial/CI-CD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taovietducofficial/CI-CD/issues"
+  },
+  "homepage": "https://github.com/taovietducofficial/CI-CD#readme",
+  "keywords": [
+    "ci-cd",
+    "github-actions",
+    "docker",
+    "fastify",
+    "typescript",
+    "devops"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage"
+  },
+  "dependencies": {
+    "fastify": "^5.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0",
+    "vitest": "^4.1.10"
+  }
+}
