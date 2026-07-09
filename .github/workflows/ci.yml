@@ -81,11 +81,10 @@ jobs:
       security-events: write
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@v0.36.0
+      - uses: aquasecurity/trivy-action@v0.70.0
         with:
           scan-type: fs
           scan-ref: .
           severity: HIGH,CRITICAL
           exit-code: '1'
           ignore-unfixed: true
-          skip-setup-trivy: true
