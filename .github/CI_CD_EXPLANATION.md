@@ -1097,22 +1097,22 @@ So the CD structure is real, but the final deployment commands are intentionally
 
 ## 13. Short summary by file
 
-| File | Role in CI/CD |
-| --- | --- |
-| [`ci.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/ci.yml) | Main CI workflow for PRs and non-main branches |
-| [`reusable-node-ci.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/reusable-node-ci.yml) | Shared Node quality gate |
-| [`cd.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/cd.yml) | Main delivery/deployment workflow |
-| [`reusable-docker.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/reusable-docker.yml) | Shared container build, publish, scan, attest, sign workflow |
-| [`release.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/release.yml) | Release automation workflow |
-| [`Dockerfile`](/home/ducnhan/Documents/works/CI-CD/Dockerfile) | Production image build definition |
-| [`package.json`](/home/ducnhan/Documents/works/CI-CD/package.json) | Source of scripts called by workflows |
-| [`release-please-config.json`](/home/ducnhan/Documents/works/CI-CD/release-please-config.json) | Release strategy and changelog mapping |
-| [`.release-please-manifest.json`](/home/ducnhan/Documents/works/CI-CD/.release-please-manifest.json) | Current managed release version |
-| [`.github/rulesets/main-branch-protection.json`](/home/ducnhan/Documents/works/CI-CD/.github/rulesets/main-branch-protection.json) | Turns CI into enforced branch policy |
-| [`.github/dependabot.yml`](/home/ducnhan/Documents/works/CI-CD/.github/dependabot.yml) | Automated maintenance PRs |
-| [`.github/CODEOWNERS`](/home/ducnhan/Documents/works/CI-CD/.github/CODEOWNERS) | Ownership policy for reviews |
-| [`CONTRIBUTING.md`](/home/ducnhan/Documents/works/CI-CD/CONTRIBUTING.md) | Human workflow aligned with automation |
-| [`SECURITY.md`](/home/ducnhan/Documents/works/CI-CD/SECURITY.md) | Security and supply-chain expectations |
+| File                                                                                                                               | Role in CI/CD                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [`ci.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/ci.yml)                                                           | Main CI workflow for PRs and non-main branches               |
+| [`reusable-node-ci.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/reusable-node-ci.yml)                               | Shared Node quality gate                                     |
+| [`cd.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/cd.yml)                                                           | Main delivery/deployment workflow                            |
+| [`reusable-docker.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/reusable-docker.yml)                                 | Shared container build, publish, scan, attest, sign workflow |
+| [`release.yml`](/home/ducnhan/Documents/works/CI-CD/.github/workflows/release.yml)                                                 | Release automation workflow                                  |
+| [`Dockerfile`](/home/ducnhan/Documents/works/CI-CD/Dockerfile)                                                                     | Production image build definition                            |
+| [`package.json`](/home/ducnhan/Documents/works/CI-CD/package.json)                                                                 | Source of scripts called by workflows                        |
+| [`release-please-config.json`](/home/ducnhan/Documents/works/CI-CD/release-please-config.json)                                     | Release strategy and changelog mapping                       |
+| [`.release-please-manifest.json`](/home/ducnhan/Documents/works/CI-CD/.release-please-manifest.json)                               | Current managed release version                              |
+| [`.github/rulesets/main-branch-protection.json`](/home/ducnhan/Documents/works/CI-CD/.github/rulesets/main-branch-protection.json) | Turns CI into enforced branch policy                         |
+| [`.github/dependabot.yml`](/home/ducnhan/Documents/works/CI-CD/.github/dependabot.yml)                                             | Automated maintenance PRs                                    |
+| [`.github/CODEOWNERS`](/home/ducnhan/Documents/works/CI-CD/.github/CODEOWNERS)                                                     | Ownership policy for reviews                                 |
+| [`CONTRIBUTING.md`](/home/ducnhan/Documents/works/CI-CD/CONTRIBUTING.md)                                                           | Human workflow aligned with automation                       |
+| [`SECURITY.md`](/home/ducnhan/Documents/works/CI-CD/SECURITY.md)                                                                   | Security and supply-chain expectations                       |
 
 ---
 
