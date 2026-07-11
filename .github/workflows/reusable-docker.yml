@@ -42,11 +42,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=sha
-            type=semver,pattern={{version}}
-            type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value=${{ inputs.version }},enable=${{ inputs.version != '' }}
+            type=raw,value=latest,enable=${{ inputs.version != '' && github.ref == 'refs/heads/main' }}
+            type=sha,prefix=sha-
 
       - name: Build and push
         id: build
