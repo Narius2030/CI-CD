@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/Narius2030/CI-CD/compare/v1.2.0...v1.3.0) (2026-07-11)
+
+
+### Features
+
+* **ci/cd:** adjust the release & cd workflows ([8c3e501](https://github.com/Narius2030/CI-CD/commit/8c3e501ad8e93040b24c56c331b2d2af7c104903))
+* **ci/cd:** adjust the release & cd workflows ([9754c29](https://github.com/Narius2030/CI-CD/commit/9754c29bcf487a76b3e80ed413c8d4f9be8dc53f))
+
 ## [1.2.0](https://github.com/Narius2030/CI-CD/compare/v1.1.0...v1.2.0) (2026-07-11)
 
 
