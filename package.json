@@ -4,15 +4,15 @@
   "description": "Production CI/CD template: Node.js/TypeScript + GitHub Actions + Docker",
   "type": "module",
   "license": "MIT",
-  "author": "taovietducofficial",
+  "author": "Narius2030",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taovietducofficial/CI-CD.git"
+    "url": "git+https://github.com/Narius2030/CI-CD.git"
   },
   "bugs": {
-    "url": "https://github.com/taovietducofficial/CI-CD/issues"
+    "url": "https://github.com/Narius2030/CI-CD/issues"
   },
-  "homepage": "https://github.com/taovietducofficial/CI-CD#readme",
+  "homepage": "https://github.com/Narius2030/CI-CD#readme",
   "keywords": [
     "ci-cd",
     "github-actions",
