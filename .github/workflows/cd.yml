@@ -2,7 +2,6 @@ name: CD
 
 on:
   push:
-    branches: [main]
     tags: ['v*']
   workflow_dispatch:
 
@@ -31,6 +30,8 @@ jobs:
       id-token: write
       attestations: write
     uses: ./.github/workflows/reusable-docker.yml
+    with:
+      version: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '' }}
 
   deploy-staging:
     name: Deploy to staging
