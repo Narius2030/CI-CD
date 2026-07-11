@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.0](https://github.com/Narius2030/CI-CD/compare/v1.1.0...v1.2.0) (2026-07-11)
+
+
+### Features
+
+* changed repository owner name ([bd7f6ca](https://github.com/Narius2030/CI-CD/commit/bd7f6ca4f09ac73b98790ff901db94765d7770dc))
+* changed repository owner name ([41110ee](https://github.com/Narius2030/CI-CD/commit/41110ee80f70410f0c7dbc253b3170d3a885a7a2))
+
+
+### Bug Fixes
+
+* downgrade trivy-action version to 0.36.0 ([389f3e5](https://github.com/Narius2030/CI-CD/commit/389f3e5c8a3c32b03f008d7538eb89a677528aab))
+* prevent trivy-action from installing trivy again ([7ab3056](https://github.com/Narius2030/CI-CD/commit/7ab305609baa84818f2b834c4143031a90a86363))
+* reformat a markdown file to .prettier ([5d2ae5e](https://github.com/Narius2030/CI-CD/commit/5d2ae5ef1f2a51db1139efd407b9ff10c9b2f568))
+* upgrade trivy-action version ([a5c55f4](https://github.com/Narius2030/CI-CD/commit/a5c55f4c204d8dd263da545bc536af5a94ce7c6b))
+
 ## [1.1.0](https://github.com/taovietducofficial/CI-CD/compare/v1.0.2...v1.1.0) (2026-07-07)
 
 
