@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.1](https://github.com/Narius2030/CI-CD/compare/v1.3.0...v1.3.1) (2026-07-11)
+
+
+### Bug Fixes
+
+* **release:** added trigger-cd in release.yml to trigger cd pipeline ([d865758](https://github.com/Narius2030/CI-CD/commit/d865758e8d86cfced7610cf58f425c3c80560806))
+* **release:** added trigger-cd in release.yml to trigger cd pipeline ([d2772a6](https://github.com/Narius2030/CI-CD/commit/d2772a67aa31d93c39f8044a558cfcb892f54ba8))
+* **release:** reformat file by prettier ([041e48a](https://github.com/Narius2030/CI-CD/commit/041e48a61977db512c31572dca0c281e1b198e3e))
+
 ## [1.3.0](https://github.com/Narius2030/CI-CD/compare/v1.2.0...v1.3.0) (2026-07-11)
 
 
