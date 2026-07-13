@@ -16,7 +16,7 @@ service tối giản; điều đáng giá là **pipeline** xung quanh nó.
 | Supply-chain        | SBOM + SLSA provenance + **GitHub attestation** + **cosign** sign & verify        |
 | Registry            | GHCR (`ghcr.io`) qua `GITHUB_TOKEN`                                               |
 | Release             | **release-please** — tự version + CHANGELOG + GitHub Release + tag semver         |
-| Deploy              | staging (auto) -> production (approval gate), verify chữ ký trước khi deploy      |
+| Deploy              | **Deployment Layer** (`deploy/`) trên self-hosted runner: cosign verify -> compose pull -> up -> health check -> rollback -> cleanup; staging (auto) -> production (approval gate) |
 | Governance          | Ruleset bảo vệ `main` (PR + CI xanh + CODEOWNERS)                                 |
 | Bảo trì             | Dependabot (npm + actions + docker), CODEOWNERS, PR title lint                    |
 
@@ -43,11 +43,15 @@ curl localhost:3000/health
   đề PR + CodeQL + dependency review + Trivy fs scan + comment coverage lên PR.
 - **`cd.yml`** — trên push `main` và tag `v*`: quality gate -> build **multi-arch** (amd64 +
   arm64, buildx cache, SBOM, provenance) -> push GHCR -> GitHub attestation -> Trivy image scan
-  (advisory) -> cosign sign -> **verify chữ ký** -> deploy staging (auto) -> deploy production
-  (chờ approval).
+  (advisory) -> cosign sign -> deploy staging (auto) -> deploy production (chờ approval). Các job
+  deploy chỉ **điều phối**: chúng gọi **Deployment Layer** (`deploy/deploy.sh`) trên self-hosted
+  runner, nơi thực hiện cosign verify -> compose pull -> up -> health check -> rollback -> cleanup.
+  Xem [`deploy/README.md`](deploy/README.md) và
+  [`.github/Production_CICD_Architecture_Guide.md`](.github/Production_CICD_Architecture_Guide.md).
 - **`release.yml`** — release-please: gộp các commit `feat:`/`fix:` thành một Release PR; merge
-  PR đó thì tự tạo tag `vX.Y.Z` + CHANGELOG + GitHub Release, và tag đó kích hoạt `cd.yml` build
-  image gắn version semver.
+  PR đó thì tự tạo tag `vX.Y.Z` + CHANGELOG + GitHub Release. Release-please phát `repository_dispatch`
+  kèm **SHA của commit được tag** sang `cd.yml`, nên CD build **đúng commit đã phát hành** (không
+  phải `main` HEAD tại thời điểm chạy) và gắn version semver cho image.
 - **`reusable-node-ci.yml`** — quality gate dùng chung (`workflow_call`).
 
 ## Thiết lập trên GitHub (bắt buộc cho phần deploy)
@@ -61,11 +65,15 @@ curl localhost:3000/health
    PR + CI xanh + linear history mới được merge. Mặc định `required_approving_review_count: 0`
    để chạy được **solo**; team thì tăng lên `1` và bật `require_code_owner_review`. Sau khi mở
    PR đầu tiên, đối chiếu tên status check thật (tab Checks) với ruleset và sửa nếu lệch.
+   Import thêm `.github/rulesets/tag-protection.json` để **bảo vệ tag `v*`**: chặn xoá và
+   force-update, giữ mỗi tag release bất biến (trỏ mãi vào đúng commit đã ký & phát hành).
 5. **Release tự động** — bật **Settings -> General -> Pull Requests -> Allow squash merging**
    và đặt commit message của squash theo tiêu đề PR. release-please đọc các commit theo chuẩn
    Conventional Commits (`feat:`, `fix:`...) để quyết định version.
-6. **Deploy thật** — thay bước `echo` placeholder trong `cd.yml` bằng lệnh thật (`kubectl` /
-   `helm` / `ssh`) và thêm secret (vd `KUBE_CONFIG`) vào từng environment.
+6. **Deploy thật** — dựng **self-hosted runner** trên server ứng dụng và cài đặt Deployment
+   Layer (`deploy/`). Toàn bộ hướng dẫn (Docker, Compose v2, cosign, thư mục `/opt/deployment`,
+   biến `DEPLOY_RUNS_ON_*`, health check, secret ứng dụng) nằm ở [`deploy/README.md`](deploy/README.md).
+   Không cần sửa `cd.yml`: các job deploy chỉ gọi `deploy/deploy.sh`.
 
 ## Verify chữ ký image
 

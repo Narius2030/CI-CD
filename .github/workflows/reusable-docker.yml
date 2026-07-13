@@ -7,6 +7,10 @@ on:
         description: Extra semver tag to apply (e.g. 1.2.3); empty to skip
         type: string
         default: ''
+      ref:
+        description: Git ref (tag/branch/SHA) to build; empty checks out the triggering ref
+        type: string
+        default: ''
     outputs:
       image:
         description: Pushed image reference by digest
@@ -24,6 +28,8 @@ jobs:
       image: ${{ steps.image.outputs.ref }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - uses: docker/setup-qemu-action@v3
 

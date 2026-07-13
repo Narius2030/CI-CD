@@ -21,6 +21,8 @@ jobs:
     outputs:
       release_created: ${{ steps.rp.outputs.release_created }}
       version: ${{ steps.rp.outputs.version }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+      sha: ${{ steps.rp.outputs.sha }}
     steps:
       - id: rp
         uses: googleapis/release-please-action@v4
@@ -44,6 +46,8 @@ jobs:
               repo: context.repo.repo,
               event_type: 'release-created',
               client_payload: {
-                version: '${{ needs.release-please.outputs.version }}'
+                version: '${{ needs.release-please.outputs.version }}',
+                tag: '${{ needs.release-please.outputs.tag_name }}',
+                sha: '${{ needs.release-please.outputs.sha }}'
               }
             })

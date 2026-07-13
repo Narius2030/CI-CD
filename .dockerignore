@@ -3,6 +3,7 @@ dist
 coverage
 .git
 .github
+deploy
 .vscode
 *.md
 .env*
