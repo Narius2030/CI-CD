@@ -7,6 +7,10 @@ on:
         description: JSON array of Node.js versions to test against
         type: string
         default: '["22", "24"]'
+      ref:
+        description: Git ref (tag/branch/SHA) to check out; empty uses the triggering ref
+        type: string
+        default: ''
 
 jobs:
   quality:
@@ -19,6 +23,8 @@ jobs:
         node: ${{ fromJSON(inputs.node-versions) }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - uses: actions/setup-node@v4
         with:
