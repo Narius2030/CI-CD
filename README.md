@@ -5,20 +5,20 @@ service tối giản; điều đáng giá là **pipeline** xung quanh nó.
 
 ## Có gì trong này
 
-| Thành phần          | Công cụ                                                                           |
-| ------------------- | --------------------------------------------------------------------------------- |
-| App                 | TypeScript + Fastify (`/health`, `/ready`)                                        |
-| Quality             | ESLint, Prettier, `tsc --noEmit`, Vitest + coverage (80%), test matrix Node 22/24 |
-| SAST                | GitHub CodeQL                                                                     |
-| Dependency/CVE scan | Trivy (fs) + `dependency-review-action`                                           |
-| Container           | Dockerfile multi-stage, non-root, `HEALTHCHECK`, build **multi-arch** amd64+arm64 |
-| Image scan          | Trivy (image, advisory)                                                           |
-| Supply-chain        | SBOM + SLSA provenance + **GitHub attestation** + **cosign** sign & verify        |
-| Registry            | GHCR (`ghcr.io`) qua `GITHUB_TOKEN`                                               |
-| Release             | **release-please** — tự version + CHANGELOG + GitHub Release + tag semver         |
+| Thành phần          | Công cụ                                                                                                                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App                 | TypeScript + Fastify (`/health`, `/ready`)                                                                                                                                         |
+| Quality             | ESLint, Prettier, `tsc --noEmit`, Vitest + coverage (80%), test matrix Node 22/24                                                                                                  |
+| SAST                | GitHub CodeQL                                                                                                                                                                      |
+| Dependency/CVE scan | Trivy (fs) + `dependency-review-action`                                                                                                                                            |
+| Container           | Dockerfile multi-stage, non-root, `HEALTHCHECK`, build **multi-arch** amd64+arm64                                                                                                  |
+| Image scan          | Trivy (image, advisory)                                                                                                                                                            |
+| Supply-chain        | SBOM + SLSA provenance + **GitHub attestation** + **cosign** sign & verify                                                                                                         |
+| Registry            | GHCR (`ghcr.io`) qua `GITHUB_TOKEN`                                                                                                                                                |
+| Release             | **release-please** — tự version + CHANGELOG + GitHub Release + tag semver                                                                                                          |
 | Deploy              | **Deployment Layer** (`deploy/`) trên self-hosted runner: cosign verify -> compose pull -> up -> health check -> rollback -> cleanup; staging (auto) -> production (approval gate) |
-| Governance          | Ruleset bảo vệ `main` (PR + CI xanh + CODEOWNERS)                                 |
-| Bảo trì             | Dependabot (npm + actions + docker), CODEOWNERS, PR title lint                    |
+| Governance          | Ruleset bảo vệ `main` (PR + CI xanh + CODEOWNERS)                                                                                                                                  |
+| Bảo trì             | Dependabot (npm + actions + docker), CODEOWNERS, PR title lint                                                                                                                     |
 
 ## Chạy local
 

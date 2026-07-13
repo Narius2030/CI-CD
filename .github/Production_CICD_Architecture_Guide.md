@@ -73,18 +73,18 @@ Application Containers
 
 # 4. Technology Stack
 
-| Layer | Technology |
-|---|---|
-| SCM | GitHub |
-| CI/CD | GitHub Actions |
-| Runner | Self-hosted GitHub Runner |
-| Runtime | Docker Engine |
-| Deployment Driver | Docker Compose v2 |
-| Registry | GHCR |
-| Image Signing | Cosign |
-| Build | Docker Buildx |
-| Health Check | HTTP/TCP/Custom Script |
-| Host OS | Ubuntu Server LTS |
+| Layer             | Technology                |
+| ----------------- | ------------------------- |
+| SCM               | GitHub                    |
+| CI/CD             | GitHub Actions            |
+| Runner            | Self-hosted GitHub Runner |
+| Runtime           | Docker Engine             |
+| Deployment Driver | Docker Compose v2         |
+| Registry          | GHCR                      |
+| Image Signing     | Cosign                    |
+| Build             | Docker Buildx             |
+| Health Check      | HTTP/TCP/Custom Script    |
+| Host OS           | Ubuntu Server LTS         |
 
 ---
 

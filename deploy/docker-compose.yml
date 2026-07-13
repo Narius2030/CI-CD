@@ -16,10 +16,10 @@ services:
     image: ${APP_IMAGE:?APP_IMAGE must be provided by the Deployment Layer}
     restart: unless-stopped
     ports:
-      - "${APP_PORT:-3000}:3000"
+      - '${APP_PORT:-3000}:3000'
     environment:
       NODE_ENV: production
-      PORT: "3000"
+      PORT: '3000'
     healthcheck:
       test:
         - CMD
@@ -33,12 +33,12 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "${APP_CPU_LIMIT:-1}"
+          cpus: '${APP_CPU_LIMIT:-1}'
           memory: ${APP_MEM_LIMIT:-512M}
     logging:
       driver: json-file
       options:
-        max-size: "10m"
-        max-file: "3"
+        max-size: '10m'
+        max-file: '3'
     security_opt:
       - no-new-privileges:true

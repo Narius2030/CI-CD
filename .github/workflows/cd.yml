@@ -99,7 +99,7 @@ jobs:
           DEPLOY_ENV: staging
           DEPLOY_DIR: ${{ vars.DEPLOY_DIR || '/opt/deployment' }}
           HEALTHCHECK_URL: ${{ vars.STAGING_HEALTHCHECK_URL || 'http://localhost:3000/health' }}
-          COSIGN_CERT_IDENTITY_REGEXP: "^${{ github.server_url }}/${{ github.repository }}/.github/workflows/.+@.+$"
+          COSIGN_CERT_IDENTITY_REGEXP: '^${{ github.server_url }}/${{ github.repository }}/.github/workflows/.+@.+$'
           COSIGN_CERT_OIDC_ISSUER: https://token.actions.githubusercontent.com
           REGISTRY: ${{ env.REGISTRY }}
           GHCR_USERNAME: ${{ github.actor }}
@@ -128,7 +128,7 @@ jobs:
           DEPLOY_ENV: production
           DEPLOY_DIR: ${{ vars.DEPLOY_DIR || '/opt/deployment' }}
           HEALTHCHECK_URL: ${{ vars.PRODUCTION_HEALTHCHECK_URL || 'http://localhost:3000/health' }}
-          COSIGN_CERT_IDENTITY_REGEXP: "^${{ github.server_url }}/${{ github.repository }}/.github/workflows/.+@.+$"
+          COSIGN_CERT_IDENTITY_REGEXP: '^${{ github.server_url }}/${{ github.repository }}/.github/workflows/.+@.+$'
           COSIGN_CERT_OIDC_ISSUER: https://token.actions.githubusercontent.com
           REGISTRY: ${{ env.REGISTRY }}
           GHCR_USERNAME: ${{ github.actor }}

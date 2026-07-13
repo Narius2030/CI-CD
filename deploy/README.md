@@ -20,13 +20,13 @@ Docker Compose ──► Application containers
 
 ## Contents
 
-| File                 | Responsibility                                              |
-| -------------------- | ----------------------------------------------------------- |
-| `deploy.sh`          | Main lifecycle entrypoint called by CD                      |
-| `rollback.sh`        | Manual/automatic rollback to the previous image             |
-| `lib.sh`             | Shared functions (logging, config, cosign, health, state)   |
-| `docker-compose.yml` | Runtime topology (the *what*, driven by env vars)           |
-| `.env.example`       | Configuration template — copy to `/opt/deployment/.env`     |
+| File                 | Responsibility                                            |
+| -------------------- | --------------------------------------------------------- |
+| `deploy.sh`          | Main lifecycle entrypoint called by CD                    |
+| `rollback.sh`        | Manual/automatic rollback to the previous image           |
+| `lib.sh`             | Shared functions (logging, config, cosign, health, state) |
+| `docker-compose.yml` | Runtime topology (the _what_, driven by env vars)         |
+| `.env.example`       | Configuration template — copy to `/opt/deployment/.env`   |
 
 ## Lifecycle (`deploy.sh`)
 
@@ -93,13 +93,13 @@ independent of the runner.
 - **Environments** `staging` and `production` (Required reviewers on `production` for the approval gate).
 - **Repository variables** to select the deploy runners and endpoints:
 
-  | Variable                    | Example                          | Purpose                                  |
-  | --------------------------- | -------------------------------- | ---------------------------------------- |
-  | `DEPLOY_RUNS_ON_STAGING`    | `["self-hosted","staging"]`      | Runner labels for the staging deploy job |
-  | `DEPLOY_RUNS_ON_PRODUCTION` | `["self-hosted","production"]`   | Runner labels for the production job     |
-  | `DEPLOY_DIR`                | `/opt/deployment`                | Deployment directory on the server       |
-  | `STAGING_HEALTHCHECK_URL`   | `http://localhost:3000/health`   | Health endpoint checked after rollout    |
-  | `PRODUCTION_HEALTHCHECK_URL`| `http://localhost:3000/health`   | Health endpoint checked after rollout    |
+  | Variable                     | Example                        | Purpose                                  |
+  | ---------------------------- | ------------------------------ | ---------------------------------------- |
+  | `DEPLOY_RUNS_ON_STAGING`     | `["self-hosted","staging"]`    | Runner labels for the staging deploy job |
+  | `DEPLOY_RUNS_ON_PRODUCTION`  | `["self-hosted","production"]` | Runner labels for the production job     |
+  | `DEPLOY_DIR`                 | `/opt/deployment`              | Deployment directory on the server       |
+  | `STAGING_HEALTHCHECK_URL`    | `http://localhost:3000/health` | Health endpoint checked after rollout    |
+  | `PRODUCTION_HEALTHCHECK_URL` | `http://localhost:3000/health` | Health endpoint checked after rollout    |
 
   If `DEPLOY_RUNS_ON_*` is unset, the deploy jobs default to `self-hosted`.
 
@@ -130,7 +130,7 @@ DEPLOY_ENV=production ./deploy/rollback.sh
 The compose service publishes a fixed host port, which suits a single replica.
 For horizontal scale on one host, front the app with a reverse proxy
 (Traefik/Nginx) and remove the static `ports` mapping, or graduate to the
-multi-host architecture in the guide's *Future Expansion* section.
+multi-host architecture in the guide's _Future Expansion_ section.
 
 ## Small/medium teams (SSH instead of a self-hosted runner)
 
