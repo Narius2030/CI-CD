@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.2](https://github.com/Narius2030/CI-CD/compare/v1.3.1...v1.3.2) (2026-07-13)
+
+
+### Bug Fixes
+
+* refactor ci/cd & release pipelines following self-hosted runner configs ([d9d041a](https://github.com/Narius2030/CI-CD/commit/d9d041a3c00d7ed56610056d7d5d8d4a018cf4c6))
+* reformat prettier ([02219d5](https://github.com/Narius2030/CI-CD/commit/02219d5c5ed10adb3edacc3c499e5996833c7df4))
+
 ## [1.3.1](https://github.com/Narius2030/CI-CD/compare/v1.3.0...v1.3.1) (2026-07-11)
 
 
