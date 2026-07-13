@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.3](https://github.com/Narius2030/CI-CD/compare/v1.3.2...v1.3.3) (2026-07-13)
+
+
+### Bug Fixes
+
+* **cd:** install cosign package in deploy-staging/production steps ([d6328fd](https://github.com/Narius2030/CI-CD/commit/d6328fd761940f59ccdda8cdacd711776227f630))
+* **cd:** install cosign package in deploy-staging/production steps ([6064705](https://github.com/Narius2030/CI-CD/commit/60647055fd52b2587232ded7978cfa5201441104))
+
 ## [1.3.2](https://github.com/Narius2030/CI-CD/compare/v1.3.1...v1.3.2) (2026-07-13)
 
 
